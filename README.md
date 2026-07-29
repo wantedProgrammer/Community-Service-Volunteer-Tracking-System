@@ -49,49 +49,71 @@ Access the app at http://localhost:8080
 Below are screenshots of the live application, demonstrating the core workflows.
 
 ## 🔐 Authentication
-Login Page	Registration	Forgot Password
-https://images/Screenshot%25202025-10-14%2520190311.png	https://images/Screenshot%25202025-10-14%2520190330.png	https://images/Screenshot%25202025-10-14%2520190715.png
-## 🖥️ Admin Dashboard
+
+| Login Page | Registration | Forgot Password |
+|------------|--------------|-----------------|
+| ![Login](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-06%20184443.png) | ![Register](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-06%20195423.png) | ![Forgot Password](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20190715.png) |
+
+### 🖥️ Admin Dashboard
 The admin dashboard provides an overview of system statistics and quick access to management functions.
 
-Dashboard (v1)	Dashboard (v2)	Dashboard (v3)	Dashboard (v4)
-https://images/Screenshot%25202025-10-06%2520204644.png	https://images/Screenshot%25202025-10-09%2520140303.png	https://images/Screenshot%25202025-10-09%2520181439.png	https://images/Screenshot%25202025-10-14%2520190401.png
-📋 Task Management (Admin)
+| Dashboard (v1) | Dashboard (v2) | Dashboard (v3) | Dashboard (v4) |
+|----------------|----------------|----------------|----------------|
+| ![Admin v1](csvts/images/Screenshot%202025-10-06%20204644.png) | ![Admin v2](csvts/images/Screenshot%202025-10-09%20140303.png) | ![Admin v3](csvts/images/Screenshot%202025-10-09%20181439.png) | ![Admin v4](csvts/images/Screenshot%202025-10-14%20190401.png) |
+
+### 📋 Task Management (Admin)
 Admins can create, view, edit, assign, and delete tasks.
 
-Create Task	Task Created	Task List (2 tasks)
-https://images/Screenshot%25202025-10-07%2520135243.png	https://images/Screenshot%25202025-10-07%2520135654.png	https://images/Screenshot%25202025-10-07%2520140014.png
-Task Assignment	Task Updated	Full Task List
-https://images/Screenshot%25202025-10-07%2520140130.png	https://images/Screenshot%25202025-10-07%2520144656.png	https://images/Screenshot%25202025-10-14%2520190437.png
-## 👤 Volunteer Dashboard
+| Create Task | Task Created | Task List (2 tasks) |
+|-------------|--------------|---------------------|
+| ![Create Task](csvts/images/Screenshot%202025-10-07%20135243.png) | ![Task Created](csvts/images/Screenshot%202025-10-07%20135654.png) | ![Task List](csvts/images/Screenshot%202025-10-07%20140014.png) |
+
+### 👤 Volunteer Dashboard
 Volunteers see their assigned tasks, progress, and personal profile.
 
-Dashboard (v1)	Dashboard (v2)	Dashboard (v3)
-https://images/Screenshot%25202025-10-07%2520231136.png	https://images/Screenshot%25202025-10-08%2520142111.png	https://images/Screenshot%25202025-10-08%2520183428.png
-Dashboard (v4 - Completed)	Task In Progress
-https://images/Screenshot%25202025-10-14%2520191159.png	https://images/Screenshot%25202025-10-09%2520181301.png
-## 📝 Volunteer Tasks, Profile & Time Logs
-Completed Tasks	Edit Profile	Time Logs
-https://images/Screenshot%25202025-10-14%2520191220.png	https://images/Screenshot%25202025-10-14%2520191240.png	https://images/Screenshot%25202025-10-14%2520191258.png
-## 👥 Volunteer Management (Admin)
+| Dashboard (v1) | Dashboard (v2) | Dashboard (v3) |
+|----------------|----------------|----------------|
+| ![Vol Dashboard 1](csvts/images/Screenshot%202025-10-07%20231136.png) | ![Vol Dashboard 2](csvts/images/Screenshot%202025-10-08%20142111.png) | ![Vol Dashboard 3](csvts/images/Screenshot%202025-10-08%20183428.png) |
+
+| Dashboard (v4 - Completed) | Task In Progress |
+|----------------------------|------------------|
+| ![Vol Dashboard 4](csvts/images/Screenshot%202025-10-14%20191159.png) | ![In Progress](csvts/images/Screenshot%202025-10-09%20181301.png) |
+
+### 📝 Volunteer Tasks, Profile & Time Logs
+
+| Completed Tasks | Edit Profile | Time Logs |
+|-----------------|--------------|-----------|
+| ![Completed Tasks](csvts/images/Screenshot%202025-10-14%20191220.png) | ![Profile](csvts/images/Screenshot%202025-10-14%20191240.png) | ![Time Logs](csvts/images/Screenshot%202025-10-14%20191258.png) |
+
+### 👥 Volunteer Management (Admin)
 Admins can view and manage all registered volunteers.
 
-Volunteers List (v1)	Volunteers List (v2)
-https://images/Screenshot%25202025-10-14%2520190507.png	https://images/Screenshot%25202025-10-14%2520113617.png
-## ⏱️ Time Tracking & Approvals
+| Volunteers List (v1) | Volunteers List (v2) |
+|----------------------|----------------------|
+| ![Volunteers 1](csvts/images/Screenshot%202025-10-14%20190507.png) | ![Volunteers 2](csvts/images/Screenshot%202025-10-14%20113617.png) |
+
+### ⏱️ Time Tracking & Approvals
 Volunteers log hours; admins approve or reject them.
 
-Pending Approvals (with entry)	Pending Approvals (empty)
-https://images/Screenshot%25202025-10-14%2520113529.png	https://images/Screenshot%25202025-10-14%2520190653.png
-Volunteer Time Logs
-https://images/Screenshot%25202025-10-14%2520124830.png
-## 📊 Reports & Analytics
+| Pending Approvals (with entry) | Pending Approvals (empty) |
+|-------------------------------|---------------------------|
+| ![Pending](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20113529.png) | ![Empty Pending](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20190653.png) |
+
+| Volunteer Time Logs |
+|---------------------|
+| ![Time Logs](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20124830.png) |
+
+### 📊 Reports & Analytics
 Generate reports on volunteer hours and task completion.
 
-Reports Dashboard	Hours Report (4.00 hrs)	Hours Report (11.00 hrs)
-https://images/Screenshot%25202025-10-14%2520190550.png	https://images/Screenshot%25202025-10-14%2520113719.png	https://images/Screenshot%25202025-10-14%2520190630.png
-Task Completion Report (single)	Task Completion Report (full)
-https://images/Screenshot%25202025-10-14%2520113654.png	https://images/Screenshot%25202025-10-14%2520190609.png
+| Reports Dashboard | Hours Report (4.00 hrs) | Hours Report (11.00 hrs) |
+|-------------------|--------------------------|---------------------------|
+| ![Reports](csvts/images/Screenshot%202025-10-14%20190550.png) | ![Hours 4](csvts/images/Screenshot%202025-10-14%20113719.png) | ![Hours 11](csvts/images/Screenshot%202025-10-14%20190630.png) |
+
+| Task Completion Report (single) | Task Completion Report (full) |
+|---------------------------------|-------------------------------|
+| ![Completion Single](csvts/images/Screenshot%202025-10-14%20113654.png) | ![Completion Full](csvts/images/Screenshot%202025-10-14%20190609.png) |
+
 ## 📌 Project Highlights
 Designed & implemented the database schema for efficient volunteer/task tracking
 
