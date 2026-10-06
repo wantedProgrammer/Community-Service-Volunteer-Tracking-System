@@ -1,128 +1,184 @@
 # Community Service Volunteer Tracking System (CSVTS)
 
-A full-stack volunteer management system built with Java, Spring Boot, and PostgreSQL to help NGOs efficiently manage volunteers, assign tasks, track service hours, and generate insightful reports.
+A web app that helps NGOs manage volunteers, assign tasks, track and approve service hours, and generate reports. Built with Java 17, Spring Boot 3, Thymeleaf, and PostgreSQL.
+
+![Admin dashboard](csvts/images/admin-dashboard.png)
 
 ---
 
-## 🚀 Key Features
+## 🚀 Features
 
-- **Volunteer Management**: Registration, profile updates, and task tracking
-- **Role-Based Access**: Separate dashboards for Administrators and Volunteers
-- **Automated Logging**: Tracks volunteer hours and generates engagement reports
-- **Smart Filtering & Search**: Quickly find volunteers or tasks
-- **Responsive UI**: Built with Thymeleaf, HTML, CSS, and JavaScript
+**For administrators**
+- Create, edit, and delete volunteer tasks with due dates and status (Open, In Progress, Completed)
+- Assign volunteers to tasks and see who is working on what
+- Review hours that volunteers submit and approve or reject each entry
+- Search and filter volunteers by name, email, or skill
+- View reports on volunteer hours and task completion rates, and export them as CSV
+
+**For volunteers**
+- Register with skills and availability
+- See assigned tasks, start them, and mark them complete
+- Log hours against tasks and track their approval status
+- Update their own profile
+
+**Security**
+- Role-based access with Spring Security (separate Admin and Volunteer areas)
+- Passwords stored as BCrypt hashes
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer        | Technologies                               |
-|--------------|--------------------------------------------|
-| Backend      | Java, Spring Boot, Spring Data JPA         |
-| Frontend     | Thymeleaf, HTML, CSS, JavaScript           |
-| Database     | PostgreSQL                                 |
-| Build        | Maven                                      |
-| Version Ctrl | Git & GitHub                               |
+| Layer    | Technologies                                        |
+|----------|-----------------------------------------------------|
+| Backend  | Java 17, Spring Boot 3.5, Spring Data JPA, Spring Security |
+| Frontend | Thymeleaf, HTML, CSS, JavaScript                    |
+| Database | PostgreSQL                                          |
+| Build    | Maven (wrapper included)                            |
 
 ---
 
-## ⚙️ Setup & Installation
+## ⚙️ Getting Started
 
 ### Prerequisites
-- Java 17+
-- Maven
-- PostgreSQL (create a database named `csvts`)
+- Java 17 or later
+- PostgreSQL 14 or later
 
-### Steps
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/yourusername/csvts.git
-Configure application.properties with your PostgreSQL credentials.
+You don't need to install Maven. The project includes the Maven wrapper (`mvnw`).
 
-Build and run:
+### 1. Clone the repository
+```bash
+git clone https://github.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System.git
+cd Community-Service-Volunteer-Tracking-System/csvts
+```
 
-bash
-mvn spring-boot:run
-Access the app at http://localhost:8080
+### 2. Create the database
+```sql
+CREATE DATABASE csvts_db;
+```
 
-## 📸 Screenshots (Final Results)
-Below are screenshots of the live application, demonstrating the core workflows.
+### 3. Configure the database connection
+The connection settings are in `src/main/resources/application.properties`. The URL and username default to a local PostgreSQL install:
 
-## 🔐 Authentication
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/csvts_db
+spring.datasource.username=postgres
+spring.datasource.password=${DB_PASSWORD}
+```
 
-| Login Page | Registration | Forgot Password |
-|------------|--------------|-----------------|
-| ![Login](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-06%20184443.png) | ![Register](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-06%20195423.png) | ![Forgot Password](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20190715.png) |
+Set your PostgreSQL password as an environment variable instead of writing it into the file:
 
-### 🖥️ Admin Dashboard
-The admin dashboard provides an overview of system statistics and quick access to management functions.
+```bash
+# macOS / Linux
+export DB_PASSWORD=your_password
 
-| Dashboard (v1) | Dashboard (v2) | Dashboard (v3) | Dashboard (v4) |
-|----------------|----------------|----------------|----------------|
-| ![Admin v1](csvts/images/Screenshot%202025-10-06%20204644.png) | ![Admin v2](csvts/images/Screenshot%202025-10-09%20140303.png) | ![Admin v3](csvts/images/Screenshot%202025-10-09%20181439.png) | ![Admin v4](csvts/images/Screenshot%202025-10-14%20190401.png) |
+# Windows (PowerShell)
+$env:DB_PASSWORD="your_password"
+```
 
-### 📋 Task Management (Admin)
-Admins can create, view, edit, assign, and delete tasks.
+The tables are created automatically on first run.
 
-| Create Task | Task Created | Task List (2 tasks) |
-|-------------|--------------|---------------------|
-| ![Create Task](csvts/images/Screenshot%202025-10-07%20135243.png) | ![Task Created](csvts/images/Screenshot%202025-10-07%20135654.png) | ![Task List](csvts/images/Screenshot%202025-10-07%20140014.png) |
+### 4. Run the app
+```bash
+# macOS / Linux
+./mvnw spring-boot:run
 
-### 👤 Volunteer Dashboard
-Volunteers see their assigned tasks, progress, and personal profile.
+# Windows
+mvnw.cmd spring-boot:run
+```
 
-| Dashboard (v1) | Dashboard (v2) | Dashboard (v3) |
-|----------------|----------------|----------------|
-| ![Vol Dashboard 1](csvts/images/Screenshot%202025-10-07%20231136.png) | ![Vol Dashboard 2](csvts/images/Screenshot%202025-10-08%20142111.png) | ![Vol Dashboard 3](csvts/images/Screenshot%202025-10-08%20183428.png) |
+Then open http://localhost:8080.
 
-| Dashboard (v4 - Completed) | Task In Progress |
-|----------------------------|------------------|
-| ![Vol Dashboard 4](csvts/images/Screenshot%202025-10-14%20191159.png) | ![In Progress](csvts/images/Screenshot%202025-10-09%20181301.png) |
+### 5. Log in
+A default administrator account is created on first startup:
 
-### 📝 Volunteer Tasks, Profile & Time Logs
+| Username | Password   |
+|----------|------------|
+| `admin`  | `admin123` |
 
-| Completed Tasks | Edit Profile | Time Logs |
-|-----------------|--------------|-----------|
-| ![Completed Tasks](csvts/images/Screenshot%202025-10-14%20191220.png) | ![Profile](csvts/images/Screenshot%202025-10-14%20191240.png) | ![Time Logs](csvts/images/Screenshot%202025-10-14%20191258.png) |
+⚠️ Change this password before using the app with real data.
 
-### 👥 Volunteer Management (Admin)
-Admins can view and manage all registered volunteers.
+Volunteers create their own accounts from the **Register** page.
 
-| Volunteers List (v1) | Volunteers List (v2) |
-|----------------------|----------------------|
-| ![Volunteers 1](csvts/images/Screenshot%202025-10-14%20190507.png) | ![Volunteers 2](csvts/images/Screenshot%202025-10-14%20113617.png) |
+---
 
-### ⏱️ Time Tracking & Approvals
-Volunteers log hours; admins approve or reject them.
+## 📸 Screenshots
 
-| Pending Approvals (with entry) | Pending Approvals (empty) |
-|-------------------------------|---------------------------|
-| ![Pending](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20113529.png) | ![Empty Pending](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20190653.png) |
+### Admin
 
-| Volunteer Time Logs |
-|---------------------|
-| ![Time Logs](https://raw.githubusercontent.com/wantedProgrammer/Community-Service-Volunteer-Tracking-System/main/csvts/images/Screenshot%202025-10-14%20124830.png) |
+| Manage Tasks | Assign Volunteers |
+|---|---|
+| ![Manage tasks](csvts/images/manage-tasks.png) | ![Assign volunteer](csvts/images/assign-volunteer.png) |
 
-### 📊 Reports & Analytics
-Generate reports on volunteer hours and task completion.
+| Approve Hours | Manage Volunteers |
+|---|---|
+| ![Time approvals](csvts/images/time-approvals.png) | ![Manage volunteers](csvts/images/manage-volunteers.png) |
 
-| Reports Dashboard | Hours Report (4.00 hrs) | Hours Report (11.00 hrs) |
-|-------------------|--------------------------|---------------------------|
-| ![Reports](csvts/images/Screenshot%202025-10-14%20190550.png) | ![Hours 4](csvts/images/Screenshot%202025-10-14%20113719.png) | ![Hours 11](csvts/images/Screenshot%202025-10-14%20190630.png) |
+| Volunteer Hours Report | Task Completion Report |
+|---|---|
+| ![Volunteer hours report](csvts/images/report-volunteer-hours.png) | ![Task completion report](csvts/images/report-task-completion.png) |
 
-| Task Completion Report (single) | Task Completion Report (full) |
-|---------------------------------|-------------------------------|
-| ![Completion Single](csvts/images/Screenshot%202025-10-14%20113654.png) | ![Completion Full](csvts/images/Screenshot%202025-10-14%20190609.png) |
+### Volunteer
 
-## 📌 Project Highlights
-Designed & implemented the database schema for efficient volunteer/task tracking
+| Dashboard | Time Logs |
+|---|---|
+| ![Volunteer dashboard](csvts/images/volunteer-dashboard.png) | ![Volunteer time logs](csvts/images/volunteer-time-logs.png) |
 
-Developed full CRUD functionality with Spring Boot for seamless backend operations
+<details>
+<summary><strong>More screenshots</strong></summary>
 
-Built a responsive and user-friendly frontend with Thymeleaf and vanilla JavaScript
+| Login | Register | Forgot Password |
+|---|---|---|
+| ![Login](csvts/images/login.png) | ![Register](csvts/images/register.png) | ![Forgot password](csvts/images/forgot-password.png) |
 
-Applied professional development practices: version control (GitHub), issue tracking, and modular code structure
+| Create Task | Reports Overview |
+|---|---|
+| ![Create task](csvts/images/create-task.png) | ![Reports](csvts/images/reports.png) |
 
-## 🏆 Outcome
-This system allows NGOs to manage volunteers efficiently, save administrative time, and track volunteer engagement with actionable insights.
+| My Tasks | My Profile |
+|---|---|
+| ![Volunteer tasks](csvts/images/volunteer-tasks.png) | ![Volunteer profile](csvts/images/volunteer-profile.png) |
 
+</details>
+
+---
+
+## 📁 Project Structure
+
+```
+csvts/
+├── src/main/java/com/nwu/csvts/
+│   ├── config/        # Startup configuration (default admin account)
+│   ├── controller/    # Web controllers: auth, admin, tasks, assignments, volunteers, reports
+│   ├── model/         # JPA entities: User, Volunteer, Admin, Task, Assignment, TimeLog
+│   ├── repository/    # Spring Data repositories
+│   ├── security/      # Spring Security configuration and user lookup
+│   └── service/       # Business logic
+├── src/main/resources/
+│   ├── templates/     # Thymeleaf pages (admin, volunteer, auth, shared fragments)
+│   ├── static/css/    # Stylesheets
+│   └── application.properties
+└── images/            # README screenshots
+```
+
+---
+
+## 🧪 Running Tests
+
+```bash
+./mvnw test
+```
+
+---
+
+## 🚧 Known Limitations & Roadmap
+
+- **Password reset is manual.** "Forgot Password" tells users to contact the administrator. Automated email reset is a planned improvement.
+- **No email notifications** yet for task assignments or hour approvals.
+- **Test coverage is minimal.** Service and controller tests are planned.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
